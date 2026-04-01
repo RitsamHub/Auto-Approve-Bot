@@ -1,2 +1,0 @@
-# Auto-Approve-Bot
-RitsamHub
