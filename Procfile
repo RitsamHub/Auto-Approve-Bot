@@ -1,1 +1,1 @@
-worker: python3 -m TechifyBots.main
+web: python3 app.py
