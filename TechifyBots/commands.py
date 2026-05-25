@@ -48,7 +48,7 @@ async def start_cmd(client, message):
             [
                 InlineKeyboardButton(
                     '⇆ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖢𝗁𝖺𝗇𝗇𝖾𝗅 ⇆',
-                    url="https://telegram.me/RitsamApprovebot?startchannel=true&admin=invite_users"
+                    url="https://telegram.me/{me.username}?startchannel=true&admin=invite_users"
                 )
             ]
         ])
