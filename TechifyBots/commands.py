@@ -38,7 +38,7 @@ async def start_cmd(client, message):
             [
                 InlineKeyboardButton(
                     '⇆ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 ⇆',
-                    url="https://telegram.me/{bot.username}?startgroup=true&admin=invite_users"
+                    url="https://telegram.me/ICONIC_SMART_BOT?startgroup=true&admin=invite_users"
                 )
             ],
             [
@@ -48,7 +48,7 @@ async def start_cmd(client, message):
             [
                 InlineKeyboardButton(
                     '⇆ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖢𝗁𝖺𝗇𝗇𝖾𝗅 ⇆',
-                    url="https://telegram.me/{bot.username}?startchannel=true&admin=invite_users"
+                    url="https://telegram.me/ICONIC_SMART_BOT?startchannel=true&admin=invite_users"
                 )
             ]
         ])
