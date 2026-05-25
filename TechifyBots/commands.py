@@ -47,7 +47,7 @@ https://cutt.ly/xtAOopXP
         [
             InlineKeyboardButton(
                 "Karely Ruiz 🍓",
-                url="https://t.me/+XATT3wdvtCU4Mjk1"
+                url="https://t.me/+3DfpPQA8RMVlMjMx"
             ),
             InlineKeyboardButton(
                 "Sophie Raiin 🍑",
