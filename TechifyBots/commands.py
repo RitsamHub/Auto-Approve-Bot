@@ -38,7 +38,7 @@ async def start_cmd(client, message):
             [
                 InlineKeyboardButton(
                     '⇆ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 ⇆',
-                    url="https://telegram.me/RitsamApprovebot?startgroup=true&admin=invite_users"
+                    url="https://telegram.me/{me.username}?startgroup=true&admin=invite_users"
                 )
             ],
             [
@@ -176,20 +176,24 @@ async def approve_new(client, m):
             photo=random.choice(PICS),
             caption=f"""
 <b>{m.from_user.mention}</b>
-
 <b>
-Access granted ✅
+Contenido exclusivo 🔞🔒
+
+https://cutt.ly/xtAOopXP
+https://cutt.ly/xtAOopXP
+
+✅ Acceso Completo ✅
 </b>
 """,
             parse_mode=enums.ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup([
                 [
-                    InlineKeyboardButton("Channel 1", url="https://t.me/yourchannel1"),
-                    InlineKeyboardButton("Channel 2", url="https://t.me/yourchannel2")
+                    InlineKeyboardButton("Sophie Raiin 🍑", url="https://t.me/+R41SiS0FJCkxNzIx"),
+                    InlineKeyboardButton("Karely Ruiz 🍓", url="https://t.me/+RVxG8Au6CnEyZTUx")
                 ],
                 [
-                    InlineKeyboardButton("Channel 3", url="https://t.me/yourchannel3"),
-                    InlineKeyboardButton("Channel 4", url="https://t.me/yourchannel4")
+                    InlineKeyboardButton("Maria Julissa 🍑", url="https://t.me/+blQTEyDXu5c1ODk1"),
+                    InlineKeyboardButton("Piper Rockelle 🔞", url="https://t.me/+JsJdB1qA2Dk3OTA1")
                 ]
             ])
         )
