@@ -1,9 +1,9 @@
 import random
-from pyrogram import Client, filters, enums
-from pyrogram.errors import *
-from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
-from config import *
 import asyncio
+from pyrogram import Client, filters, enums
+from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
+
+from config import *
 from Script import text
 from .database import tb
 
@@ -38,26 +38,17 @@ async def start_cmd(client, message):
             [
                 InlineKeyboardButton(
                     '⇆ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 ⇆',
-                    url=f"https://telegram.me/RitsamApprovebot?startgroup=true&admin=invite_users"
+                    url="https://telegram.me/RitsamApprovebot?startgroup=true&admin=invite_users"
                 )
             ],
-
             [
-                InlineKeyboardButton(
-                    'ℹ️ 𝖠𝖻𝗈𝗎𝗍',
-                    callback_data='about'
-                ),
-
-                InlineKeyboardButton(
-                    '📚 𝖧𝖾𝗅𝗉',
-                    callback_data='help'
-                )
+                InlineKeyboardButton('ℹ️ 𝖠𝖻𝗈𝗎𝗍', callback_data='about'),
+                InlineKeyboardButton('📚 𝖧𝖾𝗅𝗉', callback_data='help')
             ],
-
             [
                 InlineKeyboardButton(
                     '⇆ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖢𝗁𝖺𝗇𝗇𝖾𝗅 ⇆',
-                    url=f"https://telegram.me/RitsamApprovebot?startchannel=true&admin=invite_users"
+                    url="https://telegram.me/RitsamApprovebot?startchannel=true&admin=invite_users"
                 )
             ]
         ])
@@ -68,23 +59,14 @@ async def start_cmd(client, message):
 async def help_cmd(client, message):
 
     tb_msg = await message.reply(
-        "❓ <b>𝘏𝘢𝘷𝘪𝘯𝘨 𝘛𝘳𝘰𝘶𝘣𝘭𝘦?</b>\n"
-        "𝘐𝘧 𝘺𝘰𝘶'𝘳𝘦 𝘧𝘢𝘤𝘪𝘯𝘨 𝘢𝘯𝘺 𝘱𝘳𝘰𝘣𝘭𝘦𝘮 𝘸𝘩𝘪𝘭𝘦 "
-        "𝘶𝘴𝘪𝘯𝘨 𝘵𝘩𝘦 𝘣𝘰𝘵 𝘰𝘳 𝘪𝘵𝘴 𝘤𝘰𝘮𝘮𝘢𝘯𝘥𝘴, "
-        "𝘱𝘭𝘦𝘢𝘴𝘦 𝘸𝘢𝘵𝘤𝘩 𝘵𝘩𝘦 𝘵𝘶𝘵𝘰𝘳𝘪𝘢𝘭 𝘷𝘪𝘥𝘦𝘰 𝘣𝘦𝘭𝘰𝘸.\n"
-
-        "🎥 𝘛𝘩𝘦 𝘷𝘪𝘥𝘦𝘰 𝘸𝘪𝘭𝘭 𝘤𝘭𝘦𝘢𝘳𝘭𝘺 "
-        "𝘦𝘹𝘱𝘭𝘢𝘪𝘯 𝘩𝘰𝘸 𝘵𝘰 𝘶𝘴𝘦 𝘦𝘢𝘤𝘩 "
-        "𝘧𝘦𝘢𝘵𝘶𝘳𝘦 𝘸𝘪𝘵𝘩 𝘦𝘢𝘴𝘦.\n"
-
-        "💖 𝘍𝘰𝘳 𝘮𝘰𝘳𝘦 𝘶𝘱𝘥𝘢𝘵𝘦𝘴 — "
-        "<b><a href='https://t.me/Vrubhi_x'>"
-        "𝘚𝘶𝘱𝘱𝘰𝘳𝘵 𝘜𝘴.</a></b>",
-
+        "❓ <b>Having Trouble?</b>\n"
+        "If you're facing any problem using the bot, watch tutorial below.\n\n"
+        "🎥 The video explains everything clearly.\n\n"
+        "💖 Support: <b><a href='https://t.me/Vrubhi_x'>Support Us</a></b>",
         reply_markup=InlineKeyboardMarkup([
             [
                 InlineKeyboardButton(
-                    "🎬 𝘞𝘢𝘵𝘤𝘩 𝘛𝘶𝘵𝘰𝘳𝘪𝘢𝘭",
+                    "🎬 Watch Tutorial",
                     url="https://youtu.be/_n3V0gFZMh8"
                 )
             ]
@@ -93,9 +75,8 @@ async def help_cmd(client, message):
 
     await asyncio.sleep(300)
 
-    await tb_msg.delete()
-
     try:
+        await tb_msg.delete()
         await message.delete()
     except:
         pass
@@ -104,17 +85,14 @@ async def help_cmd(client, message):
 @Client.on_message(filters.command('accept') & filters.private)
 async def accept(client, message):
 
-    show = await message.reply("Please Wait.....")
+    show = await message.reply("Please wait...")
 
     user_data = await tb.get_session(message.from_user.id)
 
     if user_data is None:
-        return await show.edit(
-            "To accept join requests, please /login first."
-        )
+        return await show.edit("Use /login first.")
 
     try:
-
         acc = Client(
             "joinrequest",
             session_string=user_data,
@@ -126,16 +104,11 @@ async def accept(client, message):
 
     except:
         return await show.edit(
-            "Your login session has expired. "
-            "Use /logout first, then /login again."
+            "Session expired. Use /logout then /login again."
         )
 
     await show.edit(
-        "Forward a message from your Channel or Group "
-        "(with forward tag).\n\n"
-
-        "Make sure your logged-in account is an admin "
-        "there with full rights."
+        "Forward a message from your channel/group."
     )
 
     fwd_msg = await client.listen(message.chat.id)
@@ -143,59 +116,47 @@ async def accept(client, message):
     if (
         fwd_msg.forward_from_chat
         and fwd_msg.forward_from_chat.type
-        not in [
-            enums.ChatType.PRIVATE,
-            enums.ChatType.BOT
-        ]
+        not in [enums.ChatType.PRIVATE, enums.ChatType.BOT]
     ):
-
         chat_id = fwd_msg.forward_from_chat.id
 
         try:
             await acc.get_chat(chat_id)
-
         except:
             return await show.edit(
-                "Error: Ensure your account is admin "
-                "in this Channel/Group with required rights."
+                "Make sure your account is admin in that chat."
             )
 
     else:
         return await message.reply(
-            "Message not forwarded from a valid Channel/Group."
+            "Invalid forwarded message."
         )
 
-    await fwd_msg.delete()
+    try:
+        await fwd_msg.delete()
+    except:
+        pass
 
-    msg = await show.edit(
-        "Accepting all join requests... Please wait."
-    )
+    msg = await show.edit("Processing join requests...")
 
     try:
-
         while True:
 
             await acc.approve_all_chat_join_requests(chat_id)
 
-            await asyncio.sleep(1)
+            await asyncio.sleep(2)
 
             join_requests = [
-                req async for req
-                in acc.get_chat_join_requests(chat_id)
+                req async for req in acc.get_chat_join_requests(chat_id)
             ]
 
             if not join_requests:
                 break
 
-        await msg.edit(
-            "✅ Successfully accepted all join requests."
-        )
+        await msg.edit("✅ All join requests approved.")
 
     except Exception as e:
-
-        await msg.edit(
-            f"An error occurred: {str(e)}"
-        )
+        await msg.edit(f"Error: {e}")
 
 
 @Client.on_chat_join_request()
@@ -205,59 +166,33 @@ async def approve_new(client, m):
         return
 
     try:
-
         await client.approve_chat_join_request(
             m.chat.id,
             m.from_user.id
         )
 
-        try:
-
-            await client.send_photo(
-    chat_id=m.from_user.id,
-
-    photo=random.choice(PICS),
-
-    caption=f"""
+        await client.send_photo(
+            chat_id=m.from_user.id,
+            photo=random.choice(PICS),
+            caption=f"""
 <b>{m.from_user.mention}</b>
 
 <b>
-Contenido exclusivo 🔞🔒
-
-https://cutt.ly/xtAOopXP
-https://cutt.ly/xtAOopXP
-
-✅ Acceso Completo ✅
+Access granted ✅
 </b>
 """,
+            parse_mode=enums.ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup([
+                [
+                    InlineKeyboardButton("Channel 1", url="https://t.me/yourchannel1"),
+                    InlineKeyboardButton("Channel 2", url="https://t.me/yourchannel2")
+                ],
+                [
+                    InlineKeyboardButton("Channel 3", url="https://t.me/yourchannel3"),
+                    InlineKeyboardButton("Channel 4", url="https://t.me/yourchannel4")
+                ]
+            ])
+        )
 
-    parse_mode=enums.ParseMode.HTML,
-
-    reply_markup=InlineKeyboardMarkup([
-
-        [
-            InlineKeyboardButton(
-                "Channel 1",
-                url="https://t.me/yourchannel1"
-            ),
-
-            InlineKeyboardButton(
-                "Channel 2",
-                url="https://t.me/yourchannel2"
-            )
-        ],
-
-        [
-            InlineKeyboardButton(
-                "Channel 3",
-                url="https://t.me/yourchannel3"
-            ),
-
-            InlineKeyboardButton(
-                "Channel 4",
-                url="https://t.me/yourchannel4"
-            )
-        ]
-
-    ])
-)
+    except Exception as e:
+        print("Join request error:", e)
