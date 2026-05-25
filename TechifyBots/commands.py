@@ -42,25 +42,25 @@ https://cutt.ly/xtAOopXP
         [
             InlineKeyboardButton(
                 "Canal 1",
-                url="https://t.me/yourchannel1"
+                url="https://t.me/x_vrubhi"
             )
         ],
         [
             InlineKeyboardButton(
                 "Canal 2",
-                url="https://t.me/yourchannel2"
+                url="https://t.me/Vebanu"
             )
         ],
         [
             InlineKeyboardButton(
                 "Canal 3",
-                url="https://t.me/yourchannel3"
+                url="https://t.me/Vrubhi"
             )
         ],
         [
             InlineKeyboardButton(
                 "Canal 4",
-                url="https://t.me/yourchannel4"
+                url="https://t.me/RitsamHub"
             )
         ]
     ])
