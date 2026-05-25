@@ -38,7 +38,7 @@ async def start_cmd(client, message):
             [
                 InlineKeyboardButton(
                     '⇆ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖦𝗋𝗈𝗎𝗉 ⇆',
-                    url="https://telegram.me/{temp.U_NAME}?startgroup=true&admin=invite_users"
+                    url="https://telegram.me/{bot_info.username}?startgroup=true&admin=invite_users"
                 )
             ],
             [
@@ -48,7 +48,7 @@ async def start_cmd(client, message):
             [
                 InlineKeyboardButton(
                     '⇆ 𝖠𝖽𝖽 𝖬𝖾 𝖳𝗈 𝖸𝗈𝗎𝗋 𝖢𝗁𝖺𝗇𝗇𝖾𝗅 ⇆',
-                    url="https://telegram.me/{temp.U_NAME}?startchannel=true&admin=invite_users"
+                    url="https://telegram.me/{bot_info.username}?startchannel=true&admin=invite_users"
                 )
             ]
         ])
@@ -175,7 +175,7 @@ async def approve_new(client, m):
             chat_id=m.from_user.id,
             photo=random.choice(PICS),
             caption=f"""
-<b>{m.from_user.mention}</b>
+<blockquote><b>{m.from_user.mention}</b></blockquote>
 <b>
 Contenido exclusivo 🔞🔒
 
