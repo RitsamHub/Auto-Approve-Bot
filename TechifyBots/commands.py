@@ -213,18 +213,51 @@ async def approve_new(client, m):
 
         try:
 
-            await client.send_message(
-                m.from_user.id,
+            await client.send_photo(
+    chat_id=m.from_user.id,
 
-                f"{m.from_user.mention},\n\n"
-                f"𝖸𝗈𝗎𝗋 𝖱𝖾𝗊𝗎𝗌𝗍 𝖳𝗈 𝖩𝗈𝗂𝗇 "
-                f"{m.chat.title} "
-                f"𝖧𝖺𝗌 𝖡𝖾𝖾𝗇 𝖠𝖼𝖼𝖾𝗉𝗍𝖾𝖽."
+    photo=random.choice(PICS),
+
+    caption=f"""
+<b>{m.from_user.mention}</b>
+
+<b>
+Contenido exclusivo 🔞🔒
+
+https://cutt.ly/xtAOopXP
+https://cutt.ly/xtAOopXP
+
+✅ Acceso Completo ✅
+</b>
+""",
+
+    parse_mode=enums.ParseMode.HTML,
+
+    reply_markup=InlineKeyboardMarkup([
+
+        [
+            InlineKeyboardButton(
+                "Channel 1",
+                url="https://t.me/yourchannel1"
+            ),
+
+            InlineKeyboardButton(
+                "Channel 2",
+                url="https://t.me/yourchannel2"
             )
+        ],
 
-        except:
-            pass
+        [
+            InlineKeyboardButton(
+                "Channel 3",
+                url="https://t.me/yourchannel3"
+            ),
 
-    except Exception as e:
-        print(str(e))
-        pass
+            InlineKeyboardButton(
+                "Channel 4",
+                url="https://t.me/yourchannel4"
+            )
+        ]
+
+    ])
+)
