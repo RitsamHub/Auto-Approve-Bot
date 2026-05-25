@@ -12,5 +12,5 @@ DB_URI = os.environ.get("DB_URI", "mongodb+srv://Vebanu:Vebhav21218219@cluster0.
 DB_NAME = os.environ.get("DB_NAME", "Cluster0")
 IS_FSUB = os.environ.get("IS_FSUB", "True").lower() == "true"  # Set "True" For Enable Force Subscribe
 AUTH_CHANNELS = list(map(int, os.environ.get("AUTH_CHANNELS", "-1003622658538 -1001891364637 -1003713022234").split())) # Add Multiple channel ids
-AUTH_REQ_CHANNELS = list(map(int, os.environ.get("AUTH_REQ_CHANNELS", "-1002594752678").split())) # Add Multiple channel ids
+AUTH_REQ_CHANNELS = list(map(int, os.environ.get("AUTH_REQ_CHANNELS", "-1003806677396").split())) # Add Multiple channel ids
 FSUB_EXPIRE = int(os.environ.get("FSUB_EXPIRE", 2))  # minutes, 0 = no expiry
