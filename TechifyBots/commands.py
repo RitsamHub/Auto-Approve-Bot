@@ -10,8 +10,13 @@ from .database import tb
 
 @Client.on_message(filters.command("start") & filters.private)
 async def start_cmd(client, message):
+
     if await tb.get_user(message.from_user.id) is None:
-        await tb.add_user(message.from_user.id, message.from_user.first_name)
+
+        await tb.add_user(
+            message.from_user.id,
+            message.from_user.first_name
+        )
 
         bot = await client.get_me()
 
@@ -30,37 +35,33 @@ async def start_cmd(client, message):
 
     custom_text = f"""{mention}
 
-Contenido exclusivo 🔞🔒
+<b>Contenido exclusivo 🔞🔒
 
 https://cutt.ly/xtAOopXP
 https://cutt.ly/xtAOopXP
 
-✅ Acceso Completo ✅
+✅ Acceso Completo ✅</b>
 """
 
     keyboard = InlineKeyboardMarkup([
         [
             InlineKeyboardButton(
-                "Canal 1",
-                url="https://t.me/x_vrubhi"
+                "Karely Ruiz 🍓",
+                url="https://t.me/+XATT3wdvtCU4Mjk1"
+            ),
+            InlineKeyboardButton(
+                "Sophie Raiin 🍑",
+                url="https://t.me/+Tgvuvd666_hiOTYx"
             )
         ],
         [
             InlineKeyboardButton(
-                "Canal 2",
-                url="https://t.me/Vebanu"
-            )
-        ],
-        [
+                "Maria Julissa 🍑",
+                url="https://t.me/+XjVhl8Ww67U2YzRl"
+            ),
             InlineKeyboardButton(
-                "Canal 3",
-                url="https://t.me/Vrubhi"
-            )
-        ],
-        [
-            InlineKeyboardButton(
-                "Canal 4",
-                url="https://t.me/RitsamHub"
+                "Piper Rockelle 🔞",
+                url="https://t.me/+k7RLVrXFr7gyZTA9"
             )
         ]
     ])
@@ -68,12 +69,14 @@ https://cutt.ly/xtAOopXP
     await message.reply_photo(
         photo=random.choice(PICS),
         caption=custom_text,
+        parse_mode=enums.ParseMode.HTML,
         reply_markup=keyboard
     )
 
 
 @Client.on_message(filters.command("help") & filters.private)
 async def help_cmd(client, message):
+
     tb = await message.reply(
         "❓ <b>𝘏𝘢𝘷𝘪𝘯𝘨 𝘛𝘳𝘰𝘶𝘣𝘭𝘦?</b>\n\n𝘐𝘧 𝘺𝘰𝘶'𝘳𝘦 𝘧𝘢𝘤𝘪𝘯𝘨 𝘢𝘯𝘺 𝘱𝘳𝘰𝘣𝘭𝘦𝘮 𝘸𝘩𝘪𝘭𝘦 𝘶𝘴𝘪𝘯𝘨 𝘵𝘩𝘦 𝘣𝘰𝘵 𝘰𝘳 𝘪𝘵𝘴 𝘤𝘰𝘮𝘮𝘢𝘯𝘥𝘴, 𝘱𝘭𝘦𝘢𝘴𝘦 𝘸𝘢𝘵𝘤𝘩 𝘵𝘩𝘦 𝘵𝘶𝘵𝘰𝘳𝘪𝘢𝘭 𝘷𝘪𝘥𝘦𝘰 𝘣𝘦𝘭𝘰𝘸.\n\n🎥 𝘛𝘩𝘦 𝘷𝘪𝘥𝘦𝘰 𝘸𝘪𝘭𝘭 𝘤𝘭𝘦𝘢𝘳𝘭𝘺 𝘦𝘹𝘱𝘭𝘢𝘪𝘯 𝘩𝘰𝘸 𝘵𝘰 𝘶𝘴𝘦 𝘦𝘢𝘤𝘩 𝘧𝘦𝘢𝘵𝘶𝘳𝘦 𝘸𝘪𝘵𝘩 𝘦𝘢𝘴𝘦.\n\n💖 𝘍𝘰𝘳 𝘮𝘰𝘳𝘦 𝘶𝘱𝘥𝘢𝘵𝘦𝘴 — <b><a href='https://t.me/Vrubhi_x'>𝘚𝘶𝘱𝘱𝘰𝘳𝘵 𝘜𝘴.</a></b>",
         reply_markup=InlineKeyboardMarkup([
@@ -109,6 +112,7 @@ async def accept(client, message):
         )
 
     try:
+
         acc = Client(
             "joinrequest",
             session_string=user_data,
@@ -176,7 +180,9 @@ async def accept(client, message):
         )
 
     except Exception as e:
-        await msg.edit(f"**An error occurred:** `{str(e)}`")
+        await msg.edit(
+            f"**An error occurred:** `{str(e)}`"
+        )
 
 
 @Client.on_chat_join_request()
@@ -193,6 +199,7 @@ async def approve_new(client, m):
         )
 
         try:
+
             await client.send_message(
                 m.from_user.id,
                 f"{m.from_user.mention},\n\n𝖸𝗈𝗎𝗋 𝖱𝖾𝗊𝗎𝗌𝗍 𝖳𝗈 𝖩𝗈𝗂𝗇 {m.chat.title} 𝖧𝖺𝗌 𝖡𝖾𝖾𝗇 𝖠𝖼𝖼𝖾𝗉𝗍𝖾𝖽."
